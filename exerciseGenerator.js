@@ -70,7 +70,7 @@ export function randomFromArray<T>(arr: [T]): T {
   return arr[index]
 }
 
-function distanceInArray<T>(arr: [T], a: T, b: T): number {
+export function distanceInArray<T>(arr: [T], a: T, b: T): number {
   const indexA = arr.indexOf(a)
   const indexB = arr.indexOf(b)
 

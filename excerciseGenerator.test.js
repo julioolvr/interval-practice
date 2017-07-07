@@ -1,5 +1,8 @@
 import { expect } from 'chai'
-import createExercise, { randomFromArray } from './exerciseGenerator'
+import createExercise, {
+  randomFromArray,
+  distanceInArray
+} from './exerciseGenerator'
 
 describe('randomFromArray', () => {
   it('returns undefined for an empty array', () => {
@@ -18,6 +21,18 @@ describe('randomFromArray', () => {
       const randomElement = randomFromArray(arr)
       expect(arr).to.include(randomElement)
     }
+  })
+})
+
+describe('distanceInArray', () => {
+  it('counts the amount in between if the second element is after the first', () => {
+    const arr = ['A', 'B', 'C', 'D', 'E']
+    expect(distanceInArray(arr, 'B', 'D')).to.equal(2)
+  })
+
+  it('counts all the way around if the second element is before the first', () => {
+    const arr = ['A', 'B', 'C', 'D', 'E']
+    expect(distanceInArray(arr, 'D', 'B')).to.equal(3)
   })
 })
 
