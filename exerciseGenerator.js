@@ -13,6 +13,11 @@ type Note = {
 
 type NoteGroup = [Note]
 
+const C_FLAT = {
+  letter: 'C',
+  modifier: FLAT
+}
+
 const C = {
   letter: 'C'
 }
@@ -41,16 +46,87 @@ const E_FLAT = {
   modifier: FLAT
 }
 
+const E = {
+  letter: 'E'
+}
+
+const E_SHARP = {
+  letter: 'E',
+  modifier: SHARP
+}
+
+const F_FLAT = {
+  letter: 'F',
+  modifier: FLAT
+}
+
+const F = {
+  letter: 'F'
+}
+
+const F_SHARP = {
+  letter: 'F',
+  modifier: SHARP
+}
+
+const G_FLAT = {
+  letter: 'G',
+  modifier: FLAT
+}
+
+const G = {
+  letter: 'G'
+}
+
+const G_SHARP = {
+  letter: 'G',
+  modifier: SHARP
+}
+
+const A_FLAT = {
+  letter: 'A',
+  modifier: FLAT
+}
+
+const A = {
+  letter: 'A'
+}
+
+const A_SHARP = {
+  letter: 'A',
+  modifier: SHARP
+}
+
+const B_FLAT = {
+  letter: 'B',
+  modifier: FLAT
+}
+
+const B = {
+  letter: 'B'
+}
+
+const B_SHARP = {
+  letter: 'B',
+  modifier: SHARP
+}
+
 const NOTE_LETTERS: [NoteLetter] = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
 
 const NOTE_GROUPS: [NoteGroup] = [
   [C],
   [C_SHARP, D_FLAT],
   [D],
-  [D_SHARP, E_FLAT]
+  [D_SHARP, E_FLAT],
+  [E, F_FLAT],
+  [F],
+  [F_SHARP, G_FLAT],
+  [G],
+  [G_SHARP, A_FLAT],
+  [A],
+  [A_SHARP, B_FLAT],
+  [B, C_FLAT]
 ]
-
-const NOTES: [Note] = [C, C_SHARP, D]
 
 type Exercise = {
   from: Note,
@@ -83,11 +159,11 @@ export function distanceInArray<T>(arr: [T], a: T, b: T): number {
 
 const distanceBetweenLetters = distanceInArray.bind(null, NOTE_LETTERS)
 
-function getRandomNoteGroup(options: { except?: NoteGroup } = {}): NoteGroup {
+function getRandomNoteGroup(options: { except?: Note } = {}): NoteGroup {
   const { except } = options
   return randomFromArray(
     except ?
-    NOTE_GROUPS.filter(note_group => note_group !== except) :
+    NOTE_GROUPS.filter(noteGroup => noteGroup.filter(note => note.letter !== except.letter).length) :
     NOTE_GROUPS
   )
 }
@@ -175,15 +251,26 @@ function validNoteFromGroup(baseNote: Note, destinationGroup: NoteGroup): Note {
 
 export default function createExercise(): Exercise {
   const fromNoteGroup = getRandomNoteGroup()
-  const toNoteGroup = getRandomNoteGroup({ except: fromNoteGroup })
   const fromNote = randomFromArray(fromNoteGroup)
-  const toNote = validNoteFromGroup(fromNote, toNoteGroup)
 
-  const distance = distance(fromNote, toNote)
+  let toNote
+
+  do {
+    // Because I don't know enough music theory yet so this can fail, and I'm not sure
+    // what the correct solution is:
+    try {
+      const toNoteGroup = getRandomNoteGroup({ except: fromNote })
+      toNote = validNoteFromGroup(fromNote, toNoteGroup)
+    } catch (e) {
+      continue
+    }
+  } while (!toNote)
+
+  const distanceBetweenNotes = distance(fromNote, toNote)
 
   return {
     from: fromNote,
     to: toNote,
-    distance
+    distance: distanceBetweenNotes
   }
 }
