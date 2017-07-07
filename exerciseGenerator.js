@@ -13,100 +13,100 @@ type Note = {
 
 type NoteGroup = [Note]
 
-const C_FLAT = {
+export const C_FLAT = {
   letter: 'C',
   modifier: FLAT
 }
 
-const C = {
+export const C = {
   letter: 'C'
 }
 
-const C_SHARP = {
+export const C_SHARP = {
   letter: 'C',
   modifier: SHARP
 }
 
-const D_FLAT = {
+export const D_FLAT = {
   letter: 'D',
   modifier: FLAT
 }
 
-const D = {
+export const D = {
   letter: 'D'
 }
 
-const D_SHARP = {
+export const D_SHARP = {
   letter: 'D',
   modifier: SHARP
 }
 
-const E_FLAT = {
+export const E_FLAT = {
   letter: 'E',
   modifier: FLAT
 }
 
-const E = {
+export const E = {
   letter: 'E'
 }
 
-const E_SHARP = {
+export const E_SHARP = {
   letter: 'E',
   modifier: SHARP
 }
 
-const F_FLAT = {
+export const F_FLAT = {
   letter: 'F',
   modifier: FLAT
 }
 
-const F = {
+export const F = {
   letter: 'F'
 }
 
-const F_SHARP = {
+export const F_SHARP = {
   letter: 'F',
   modifier: SHARP
 }
 
-const G_FLAT = {
+export const G_FLAT = {
   letter: 'G',
   modifier: FLAT
 }
 
-const G = {
+export const G = {
   letter: 'G'
 }
 
-const G_SHARP = {
+export const G_SHARP = {
   letter: 'G',
   modifier: SHARP
 }
 
-const A_FLAT = {
+export const A_FLAT = {
   letter: 'A',
   modifier: FLAT
 }
 
-const A = {
+export const A = {
   letter: 'A'
 }
 
-const A_SHARP = {
+export const A_SHARP = {
   letter: 'A',
   modifier: SHARP
 }
 
-const B_FLAT = {
+export const B_FLAT = {
   letter: 'B',
   modifier: FLAT
 }
 
-const B = {
+export const B = {
   letter: 'B'
 }
 
-const B_SHARP = {
+export const B_SHARP = {
   letter: 'B',
   modifier: SHARP
 }
@@ -114,12 +114,12 @@ const B_SHARP = {
 const NOTE_LETTERS: [NoteLetter] = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
 
 const NOTE_GROUPS: [NoteGroup] = [
-  [C],
+  [B_SHARP, C],
   [C_SHARP, D_FLAT],
   [D],
   [D_SHARP, E_FLAT],
   [E, F_FLAT],
-  [F],
+  [E_SHARP, F],
   [F_SHARP, G_FLAT],
   [G],
   [G_SHARP, A_FLAT],
@@ -168,7 +168,7 @@ function getRandomNoteGroup(options: { except?: Note } = {}): NoteGroup {
   )
 }
 
-function distance(from: Note, to: Note): Distance {
+export function distance(from: Note, to: Note): Distance {
   const semitones = semitonesBetweenNotes(from, to)
   let realDistance;
 
