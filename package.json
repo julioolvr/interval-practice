@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test": "mocha --require babel-register **/*.test.js"
+    "test": "mocha --require babel-register **/*.test.js",
+    "test:watch": "npm run test -- -w"
   },
   "devDependencies": {
     "babel-preset-env": "^1.6.0",

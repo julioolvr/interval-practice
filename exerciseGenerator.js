@@ -65,7 +65,7 @@ type Distance = {
 
 type RelativeInterval = number
 
-function randomFromArray<T>(arr: [T]): T {
+export function randomFromArray<T>(arr: [T]): T {
   const index = Math.floor(Math.random() * arr.length)
   return arr[index]
 }
