@@ -289,7 +289,7 @@ function validNoteFromGroup(baseNote: Note, destinationGroup: NoteGroup): Note {
   return destinationGroup.find(note => note.letter === relativeLetter);
 }
 
-export default function createExercise(): Exercise {
+export default function getRandomInterval(): Exercise {
   const fromNoteGroup = getRandomNoteGroup();
   const fromNote = randomFromArray(fromNoteGroup);
 
