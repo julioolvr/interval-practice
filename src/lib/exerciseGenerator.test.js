@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import createExercise, {
+import getRandomInterval, {
   randomFromArray,
   distanceInArray,
   distance,
@@ -112,8 +112,8 @@ describe("distance", () => {
   });
 });
 
-describe("excerciseGenerator", () => {
+describe("getRandomInterval", () => {
   it("works", () => {
-    expect(createExercise).not.to.be.undefined;
+    expect(getRandomInterval).not.to.be.undefined;
   });
 });
