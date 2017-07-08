@@ -3,8 +3,8 @@
 type NoteLetter = "C" | "D" | "E" | "F" | "G" | "A" | "B";
 type NoteModifier = "Sharp" | "Flat";
 
-const SHARP: NoteModifier = "Sharp";
-const FLAT: NoteModifier = "Flat";
+export const SHARP: NoteModifier = "Sharp";
+export const FLAT: NoteModifier = "Flat";
 
 type Note = {
   letter: NoteLetter,
