@@ -1,7 +1,13 @@
 import React from "react";
+
+import type { Note as NoteType } from "../lib/exerciseGenerator";
 import { FLAT } from "../lib/exerciseGenerator";
 
-function Note({ note }) {
+type Props = {
+  note: NoteType
+};
+
+function Note({ note }: Props) {
   let modifier = "";
 
   if (note.modifier) {

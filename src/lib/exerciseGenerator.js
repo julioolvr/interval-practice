@@ -1,4 +1,5 @@
 // @flow
+import randomFromArray from "./randomFromArray";
 
 type NoteLetter = "C" | "D" | "E" | "F" | "G" | "A" | "B";
 type NoteModifier = "Sharp" | "Flat";
@@ -6,7 +7,7 @@ type NoteModifier = "Sharp" | "Flat";
 export const SHARP: NoteModifier = "Sharp";
 export const FLAT: NoteModifier = "Flat";
 
-type Note = {
+export type Note = {
   letter: NoteLetter,
   modifier?: NoteModifier
 };
@@ -140,11 +141,6 @@ type Distance = {
 };
 
 type RelativeInterval = number;
-
-export function randomFromArray<T>(arr: [T]): T {
-  const index = Math.floor(Math.random() * arr.length);
-  return arr[index];
-}
 
 export function distanceInArray<T>(arr: [T], a: T, b: T): number {
   const indexA = arr.indexOf(a);
