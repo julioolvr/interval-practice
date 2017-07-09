@@ -189,7 +189,10 @@ function relativeLetterForInterval(
   return NOTE_LETTERS[newIndex];
 }
 
-function validNoteFromGroup(baseNote: Note, destinationGroup: NoteGroup): Note {
+function validNoteFromGroup(
+  baseNote: Note,
+  destinationGroup: NoteGroup
+): ?Note {
   const semitones = semitonesFromNoteToGroup(baseNote, destinationGroup);
   const relativeIntervals = relativeIntervalsForSemitones(semitones);
   const relativeInterval = randomFromArray(relativeIntervals);

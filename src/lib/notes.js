@@ -1,3 +1,4 @@
+// @flow
 export type NoteLetter = "C" | "D" | "E" | "F" | "G" | "A" | "B";
 export type NoteModifier = "Sharp" | "Flat";
 

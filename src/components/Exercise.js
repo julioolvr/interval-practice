@@ -1,3 +1,4 @@
+// @flow
 import React from "react";
 
 import Note from "./Note";
@@ -6,7 +7,7 @@ import getRandomInterval from "../lib/exerciseGenerator";
 import randomFromArray from "../lib/randomFromArray";
 
 type Guess = "From" | "To" | "Distance";
-const GUESSES: [Guess] = ["From", "To", "Distance"];
+const GUESSES: Array<Guess> = ["From", "To", "Distance"];
 
 class Exercise extends React.Component {
   state = {

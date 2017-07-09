@@ -1,7 +1,8 @@
+// @flow
 import React from "react";
 
-import type { Note as NoteType } from "../lib/exerciseGenerator";
 import { FLAT, noteToString } from "../lib/notes";
+import type { Note as NoteType } from "../lib/notes";
 
 type Props = {
   note: NoteType
