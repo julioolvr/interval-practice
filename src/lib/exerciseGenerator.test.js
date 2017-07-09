@@ -1,7 +1,9 @@
 import { expect } from "chai";
 import getRandomInterval, {
   distanceInArray,
-  distance,
+  distance
+} from "./exerciseGenerator";
+import {
   C_FLAT,
   C,
   C_SHARP,
@@ -23,7 +25,7 @@ import getRandomInterval, {
   B_FLAT,
   B,
   B_SHARP
-} from "./exerciseGenerator";
+} from "./notes";
 
 describe("distanceInArray", () => {
   it("counts the amount in between if the second element is after the first", () => {

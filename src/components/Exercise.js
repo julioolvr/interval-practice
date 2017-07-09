@@ -1,6 +1,7 @@
 import React from "react";
 
 import Note from "./Note";
+import NoteSelector from "./NoteSelector";
 import getRandomInterval from "../lib/exerciseGenerator";
 import randomFromArray from "../lib/randomFromArray";
 
@@ -23,13 +24,18 @@ class Exercise extends React.Component {
   render() {
     const { interval, toGuess } = this.state;
 
+    const fromNote =
+      toGuess === "From" ? <NoteSelector /> : <Note note={interval.from} />;
+    const toNote =
+      toGuess === "To" ? <NoteSelector /> : <Note note={interval.to} />;
+
     return (
       <div>
         <div>
-          {toGuess === "From" && "➡️"} From: <Note note={interval.from} />
+          {toGuess === "From" && "➡️"} From: {fromNote}
         </div>
         <div>
-          {toGuess === "To" && "➡️"} To: <Note note={interval.to} />
+          {toGuess === "To" && "➡️"} To: {toNote}
         </div>
         <div>
           {toGuess === "Distance" && "➡️"} Distance: {interval.distance.name}

@@ -1,120 +1,34 @@
 // @flow
 import randomFromArray from "./randomFromArray";
+import {
+  NOTE_LETTERS,
+  C_FLAT,
+  C,
+  C_SHARP,
+  D_FLAT,
+  D,
+  D_SHARP,
+  E_FLAT,
+  E,
+  E_SHARP,
+  F_FLAT,
+  F,
+  F_SHARP,
+  G_FLAT,
+  G,
+  G_SHARP,
+  A_FLAT,
+  A,
+  A_SHARP,
+  B_FLAT,
+  B,
+  B_SHARP
+} from "./notes";
+import type { Note, NoteLetter } from "./notes";
 
-type NoteLetter = "C" | "D" | "E" | "F" | "G" | "A" | "B";
-type NoteModifier = "Sharp" | "Flat";
+type NoteGroup = Array<Note>;
 
-export const SHARP: NoteModifier = "Sharp";
-export const FLAT: NoteModifier = "Flat";
-
-export type Note = {
-  letter: NoteLetter,
-  modifier?: NoteModifier
-};
-
-type NoteGroup = [Note];
-
-export const C_FLAT = {
-  letter: "C",
-  modifier: FLAT
-};
-
-export const C = {
-  letter: "C"
-};
-
-export const C_SHARP = {
-  letter: "C",
-  modifier: SHARP
-};
-
-export const D_FLAT = {
-  letter: "D",
-  modifier: FLAT
-};
-
-export const D = {
-  letter: "D"
-};
-
-export const D_SHARP = {
-  letter: "D",
-  modifier: SHARP
-};
-
-export const E_FLAT = {
-  letter: "E",
-  modifier: FLAT
-};
-
-export const E = {
-  letter: "E"
-};
-
-export const E_SHARP = {
-  letter: "E",
-  modifier: SHARP
-};
-
-export const F_FLAT = {
-  letter: "F",
-  modifier: FLAT
-};
-
-export const F = {
-  letter: "F"
-};
-
-export const F_SHARP = {
-  letter: "F",
-  modifier: SHARP
-};
-
-export const G_FLAT = {
-  letter: "G",
-  modifier: FLAT
-};
-
-export const G = {
-  letter: "G"
-};
-
-export const G_SHARP = {
-  letter: "G",
-  modifier: SHARP
-};
-
-export const A_FLAT = {
-  letter: "A",
-  modifier: FLAT
-};
-
-export const A = {
-  letter: "A"
-};
-
-export const A_SHARP = {
-  letter: "A",
-  modifier: SHARP
-};
-
-export const B_FLAT = {
-  letter: "B",
-  modifier: FLAT
-};
-
-export const B = {
-  letter: "B"
-};
-
-export const B_SHARP = {
-  letter: "B",
-  modifier: SHARP
-};
-
-const NOTE_LETTERS: [NoteLetter] = ["C", "D", "E", "F", "G", "A", "B"];
-
-const NOTE_GROUPS: [NoteGroup] = [
+const NOTE_GROUPS: Array<NoteGroup> = [
   [B_SHARP, C],
   [C_SHARP, D_FLAT],
   [D],
@@ -142,7 +56,7 @@ type Distance = {
 
 type RelativeInterval = number;
 
-export function distanceInArray<T>(arr: [T], a: T, b: T): number {
+export function distanceInArray<T>(arr: Array<T>, a: T, b: T): number {
   const indexA = arr.indexOf(a);
   const indexB = arr.indexOf(b);
 
@@ -230,7 +144,9 @@ function semitonesFromNoteToGroup(fromNote: Note, toGroup: NoteGroup): number {
   return distanceInArray(NOTE_GROUPS, fromGroup, toGroup);
 }
 
-function relativeIntervalsForSemitones(semitones: number): [RelativeInterval] {
+function relativeIntervalsForSemitones(
+  semitones: number
+): Array<RelativeInterval> {
   switch (semitones) {
     case 1:
       return [2];
