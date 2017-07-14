@@ -28,7 +28,8 @@ class Exercise extends React.Component {
   nextInterval() {
     this.setState({
       interval: getRandomInterval(),
-      toGuess: randomFromArray(GUESSES)
+      toGuess: randomFromArray(GUESSES),
+      guess: undefined
     });
   }
 
@@ -43,7 +44,7 @@ class Exercise extends React.Component {
       toGuess === "From"
         ? <NoteSelector
             onSelect={note => this.setGuess(note)}
-            value={((guess: any): NoteType) || NOTES[0]}
+            value={((guess: any): NoteType)}
           />
         : <Note note={interval.from} />;
 
@@ -51,7 +52,7 @@ class Exercise extends React.Component {
       toGuess === "To"
         ? <NoteSelector
             onSelect={note => this.setGuess(note)}
-            value={((guess: any): NoteType) || NOTES[0]}
+            value={((guess: any): NoteType)}
           />
         : <Note note={interval.to} />;
 

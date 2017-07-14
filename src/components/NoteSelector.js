@@ -23,9 +23,10 @@ function NoteSelector({ value, onSelect }: Props) {
 
   return (
     <select
-      value={noteToString(value)}
+      value={value && noteToString(value)}
       onChange={e => onSelect(NOTE_FOR_STRING[e.target.value])}
     >
+      <option>---</option>
       {options}
     </select>
   );
