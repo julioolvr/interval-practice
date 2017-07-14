@@ -43,14 +43,43 @@ const NOTE_GROUPS: Array<NoteGroup> = [
   [B, C_FLAT]
 ];
 
-type Exercise = {
+export type Interval = {
   from: Note,
   to: Note,
   distance: Distance
 };
 
+export type RealDistance =
+  | "m2"
+  | "M2"
+  | "m3"
+  | "M3"
+  | "P4"
+  | "A4"
+  | "d5"
+  | "P5"
+  | "m6"
+  | "M6"
+  | "m7"
+  | "M7";
+
+export const DISTANCES = [
+  "m2",
+  "M2",
+  "m3",
+  "M3",
+  "P4",
+  "A4",
+  "d5",
+  "P5",
+  "m6",
+  "M6",
+  "m7",
+  "M7"
+];
+
 type Distance = {
-  name: string,
+  name: RealDistance,
   semitones: number
 };
 
@@ -83,7 +112,7 @@ function getRandomNoteGroup(options: { except?: Note } = {}): NoteGroup {
 
 export function distance(from: Note, to: Note): Distance {
   const semitones = semitonesBetweenNotes(from, to);
-  let realDistance;
+  let realDistance: ?RealDistance;
 
   switch (semitones) {
     case 1:
@@ -204,7 +233,7 @@ function validNoteFromGroup(
   return destinationGroup.find(note => note.letter === relativeLetter);
 }
 
-export default function getRandomInterval(): Exercise {
+export default function getRandomInterval(): Interval {
   const fromNoteGroup = getRandomNoteGroup();
   const fromNote = randomFromArray(fromNoteGroup);
 
