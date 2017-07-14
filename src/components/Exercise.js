@@ -10,6 +10,7 @@ import type {
 import { NOTES, isSameNote } from "../lib/notes";
 import Note from "./Note";
 import NoteSelector from "./NoteSelector";
+import DistanceSelector from "./DistanceSelector";
 import getRandomInterval, { DISTANCES } from "../lib/exerciseGenerator";
 import randomFromArray from "../lib/randomFromArray";
 
@@ -56,13 +57,21 @@ class Exercise extends React.Component {
           />
         : <Note note={interval.to} />;
 
+    const distance =
+      toGuess === "Distance"
+        ? <DistanceSelector
+            onSelect={distance => this.setGuess(distance)}
+            value={((guess: any): RealDistanceType)}
+          />
+        : interval.distance.name;
+
     let isCorrect = false;
 
     if (guess && (toGuess === "From" || toGuess === "To")) {
       const noteToCheck = toGuess === "From" ? interval.from : interval.to;
       isCorrect = isSameNote(noteToCheck, ((guess: any): NoteType));
-    } else {
-      // TODO: Check distance
+    } else if (guess && toGuess === "Distance") {
+      isCorrect = interval.distance.name === guess;
     }
 
     return (
@@ -74,7 +83,7 @@ class Exercise extends React.Component {
           {toGuess === "To" && "➡️"} To: {toNote}
         </div>
         <div>
-          {toGuess === "Distance" && "➡️"} Distance: {interval.distance.name}
+          {toGuess === "Distance" && "➡️"} Distance: {distance}
         </div>
         {isCorrect ? "Yes!" : "No!"}
         <button onClick={() => this.nextInterval()}>Next</button>
