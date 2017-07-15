@@ -26,7 +26,7 @@ const GROUPED_NOTES = NOTES.reduce((acc, note, i) => {
 }, []);
 
 type Props = {
-  value: Note,
+  value: ?Note,
   onSelect: Note => void
 };
 

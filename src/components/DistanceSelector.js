@@ -7,7 +7,7 @@ import type { RealDistance } from "../lib/exerciseGenerator";
 import { DISTANCES } from "../lib/exerciseGenerator";
 
 type Props = {
-  value: RealDistance,
+  value: ?RealDistance,
   onSelect: RealDistance => void
 };
 

@@ -1,9 +1,11 @@
 .NoteSelector {
+  font-size: 16px;
   display: grid;
   grid-template-columns: auto auto auto;
 }
 
 .NoteSelector__note {
+  font-size: 1em;
   width: 5em;
   padding: 1em;
   margin: 1px;
