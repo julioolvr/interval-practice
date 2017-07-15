@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 
-import { FLAT, noteToString } from "../lib/notes";
+import { noteToString } from "../lib/notes";
 import type { Note as NoteType } from "../lib/notes";
 
 type Props = {

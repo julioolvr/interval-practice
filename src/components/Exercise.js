@@ -2,16 +2,13 @@
 import React from "react";
 
 import type { Note as NoteType } from "../lib/notes";
-import type {
-  Interval,
-  RealDistance as RealDistanceType
-} from "../lib/exerciseGenerator";
+import type { RealDistance as RealDistanceType } from "../lib/exerciseGenerator";
 
-import { NOTES, isSameNote } from "../lib/notes";
+import { isSameNote } from "../lib/notes";
 import Note from "./Note";
 import NoteSelector from "./NoteSelector";
 import DistanceSelector from "./DistanceSelector";
-import getRandomInterval, { DISTANCES } from "../lib/exerciseGenerator";
+import getRandomInterval from "../lib/exerciseGenerator";
 import randomFromArray from "../lib/randomFromArray";
 
 type ValueGuessed = NoteType | RealDistanceType;
