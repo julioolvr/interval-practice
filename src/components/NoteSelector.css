@@ -1,7 +1,104 @@
+.NoteSelector {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
 .NoteSelector__note {
   width: 5em;
   padding: 1em;
   margin: 1px;
   border: none;
   cursor: pointer;
+}
+
+.NoteSelector__note--selected {
+  color: white;
+}
+
+.NoteSelector__note:nth-of-type(0n + 1) {
+  background-color: #ff1d00;
+}
+
+.NoteSelector__note:nth-of-type(0n + 2) {
+  background-color: #fe0724;
+}
+
+.NoteSelector__note:nth-of-type(0n + 3) {
+  background-color: #fe0f62;
+}
+
+.NoteSelector__note:nth-of-type(0n + 4) {
+  background-color: #fe179e;
+}
+
+.NoteSelector__note:nth-of-type(0n + 5) {
+  background-color: #fe1ed5;
+}
+
+.NoteSelector__note:nth-of-type(0n + 6) {
+  background-color: #f326fe;
+}
+
+.NoteSelector__note:nth-of-type(0n + 7) {
+  background-color: #c32efe;
+}
+
+.NoteSelector__note:nth-of-type(0n + 8) {
+  background-color: #9635fe;
+}
+
+.NoteSelector__note:nth-of-type(0n + 9) {
+  background-color: #6d3dfe;
+}
+
+.NoteSelector__note:nth-of-type(0n + 10) {
+  background-color: #4845fe;
+}
+
+.NoteSelector__note:nth-of-type(0n + 11) {
+  background-color: #4c73fe;
+}
+
+.NoteSelector__note:nth-of-type(0n + 12) {
+  background-color: #54a0fd;
+}
+
+.NoteSelector__note:nth-of-type(0n + 13) {
+  background-color: #5ccafd;
+}
+
+.NoteSelector__note:nth-of-type(0n + 14) {
+  background-color: #63f0fd;
+}
+
+.NoteSelector__note:nth-of-type(0n + 15) {
+  background-color: #6bfde7;
+}
+
+.NoteSelector__note:nth-of-type(0n + 16) {
+  background-color: #72fdc8;
+}
+
+.NoteSelector__note:nth-of-type(0n + 17) {
+  background-color: #7afdac;
+}
+
+.NoteSelector__note:nth-of-type(0n + 18) {
+  background-color: #82fd94;
+}
+
+.NoteSelector__note:nth-of-type(0n + 19) {
+  background-color: #93fd89;
+}
+
+.NoteSelector__note:nth-of-type(0n + 20) {
+  background-color: #b3fd91;
+}
+
+.NoteSelector__note:nth-of-type(0n + 21) {
+  background-color: #d0fd98;
+}
+
+.NoteSelector__note[disabled]:not(.NoteSelector__note--selected) {
+  background-color: gray;
 }
