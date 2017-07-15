@@ -1,6 +1,8 @@
 // @flow
 import React from "react";
 
+import "./DistanceSelector.css";
+
 import type { RealDistance } from "../lib/exerciseGenerator";
 import { DISTANCES } from "../lib/exerciseGenerator";
 
@@ -11,16 +13,25 @@ type Props = {
 
 function DistanceSelector({ value, onSelect }: Props) {
   const options = DISTANCES.map(distance =>
-    <option key={distance} value={distance}>
+    <button
+      key={distance}
+      onClick={() => onSelect(distance)}
+      className={[
+        "DistanceSelector__distance",
+        value === distance && "DistanceSelector__distance--selected"
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      disabled={!!value}
+    >
       {distance}
-    </option>
+    </button>
   );
 
   return (
-    <select value={value} onChange={e => onSelect(e.target.value)}>
-      <option>---</option>
+    <div className="DistanceSelector">
       {options}
-    </select>
+    </div>
   );
 }
 

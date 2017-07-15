@@ -1,0 +1,68 @@
+.DistanceSelector {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.DistanceSelector__distance {
+  width: 5em;
+  padding: 1em;
+  margin: 1px;
+  border: none;
+  cursor: pointer;
+}
+
+.DistanceSelector__distance--selected {
+  color: white;
+}
+
+.DistanceSelector__distance:nth-of-type(0n + 1) {
+  background-color: #ff1d00;
+}
+
+.DistanceSelector__distance:nth-of-type(0n + 2) {
+  background-color: #fe0e57;
+}
+
+.DistanceSelector__distance:nth-of-type(0n + 3) {
+  background-color: #fe1bc1;
+}
+
+.DistanceSelector__distance:nth-of-type(0n + 4) {
+  background-color: #dd29fe;
+}
+
+.DistanceSelector__distance:nth-of-type(0n + 5) {
+  background-color: #8b37fe;
+}
+
+.DistanceSelector__distance:nth-of-type(0n + 6) {
+  background-color: #4546fe;
+}
+
+.DistanceSelector__distance:nth-of-type(0n + 7) {
+  background-color: #539cfd;
+}
+
+.DistanceSelector__distance:nth-of-type(0n + 8) {
+  background-color: #61e6fd;
+}
+
+.DistanceSelector__distance:nth-of-type(0n + 9) {
+  background-color: #6ffdd6;
+}
+
+.DistanceSelector__distance:nth-of-type(0n + 10) {
+  background-color: #7dfda3;
+}
+
+.DistanceSelector__distance:nth-of-type(0n + 11) {
+  background-color: #99fd8b;
+}
+
+.DistanceSelector__distance:nth-of-type(0n + 12) {
+  background-color: #d0fd99;
+}
+
+.DistanceSelector__distance[disabled]:not(.DistanceSelector__distance--selected) {
+  background-color: gray;
+}
