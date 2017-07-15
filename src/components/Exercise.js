@@ -1,6 +1,8 @@
 // @flow
 import React from "react";
 
+import "./Exercise.css";
+
 import type { Note as NoteType } from "../lib/notes";
 import type { RealDistance as RealDistanceType } from "../lib/exerciseGenerator";
 
@@ -72,15 +74,17 @@ class Exercise extends React.Component {
     }
 
     return (
-      <div>
-        <div>
-          {toGuess === "From" && "➡️"} From: {fromNote}
-        </div>
-        <div>
-          {toGuess === "To" && "➡️"} To: {toNote}
-        </div>
-        <div>
-          {toGuess === "Distance" && "➡️"} Distance: {distance}
+      <div className="Exercise">
+        <div className="Exercise__parts">
+          <div>
+            From: {fromNote}
+          </div>
+          <div>
+            To: {toNote}
+          </div>
+          <div>
+            Distance: {distance}
+          </div>
         </div>
         {isCorrect ? "Yes!" : "No!"}
         <button onClick={() => this.nextInterval()}>Next</button>

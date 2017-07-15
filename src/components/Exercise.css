@@ -1,0 +1,4 @@
+.Exercise__parts {
+  display: flex;
+  justify-content: space-between;
+}

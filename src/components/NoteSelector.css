@@ -1,0 +1,7 @@
+.NoteSelector__note {
+  width: 5em;
+  padding: 1em;
+  margin: 1px;
+  border: none;
+  cursor: pointer;
+}
