@@ -25,16 +25,16 @@
 
 .Exercise__partTitle {
   font-size: .8em;
-  color: gray;
+  color: #444;
 }
 
 .Exercise__partContent {
   font-size: 6em;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px) and (orientation: portrait) {
   .Exercise {
-    font-size: .7em;
+    font-size: .4em;
   }
 
   .Exercise__parts {

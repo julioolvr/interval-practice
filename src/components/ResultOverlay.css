@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
+  top: 0;
   width: 100vw;
   height: 100vh;
   justify-content: center;
@@ -38,4 +39,10 @@
 
 .ResultOverlay__buttonArrow {
   font-size: .8em;
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+  .ResultOverlay {
+    font-size: 5em;
+  }
 }
