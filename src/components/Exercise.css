@@ -31,3 +31,18 @@
 .Exercise__partContent {
   font-size: 6em;
 }
+
+@media (max-width: 700px) {
+  .Exercise {
+    font-size: .7em;
+  }
+
+  .Exercise__parts {
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .Exercise__part {
+    flex: initial;
+  }
+}
