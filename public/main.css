@@ -3,7 +3,7 @@ body.main-container {
   background-image: url("rock.png");
   background-position: bottom 5% right 5%;
   background-repeat: no-repeat;
-  background-size: 50%;
+  background-size: 25%;
 }
 
 @media (min-resolution: 2dppx) {
