@@ -10,6 +10,7 @@ import { isSameNote, noteToString } from "../lib/notes";
 import Note from "./Note";
 import NoteSelector from "./NoteSelector";
 import DistanceSelector from "./DistanceSelector";
+import ResultOverlay from "./ResultOverlay";
 import getRandomInterval from "../lib/exerciseGenerator";
 import randomFromArray from "../lib/randomFromArray";
 
@@ -105,8 +106,11 @@ class Exercise extends React.Component {
             </div>
           </div>
         </div>
-        {isCorrect ? "Yes!" : "No!"}
-        <button onClick={() => this.nextInterval()}>Next</button>
+        <ResultOverlay
+          visible={!!guess}
+          isCorrect={isCorrect}
+          onNext={() => this.nextInterval()}
+        />
       </div>
     );
   }

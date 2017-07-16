@@ -1,0 +1,35 @@
+.ResultOverlay {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 3em;
+}
+
+.ResultOverlay__result {
+  font-size: 1em;
+  color: white;
+  padding: .3em;
+  background-color: rgba(255, 62, 62, 0.57);
+}
+
+.ResultOverlay__result--correct {
+  background-color: rgba(62, 255, 62, 0.57);
+}
+
+.ResultOverlay__button {
+  background: none;
+  border: none;
+  font-size: .7em;
+  cursor: pointer;
+  color: white;
+  margin-top: 1em;
+}
+
+.ResultOverlay__buttonArrow {
+  font-size: .8em;
+}
