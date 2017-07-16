@@ -2,13 +2,17 @@ import React from "react";
 
 import "./ResultOverlay.css";
 
+import type { Interval } from "../lib/exerciseGenerator";
+import { noteToString } from "../lib/notes";
+
 type Props = {
   visible: boolean,
   isCorrect: boolean,
-  onNext: () => void
+  onNext: () => void,
+  interval: Interval
 };
 
-function ResultOverlay({ visible, isCorrect, onNext }: Props) {
+function ResultOverlay({ visible, isCorrect, onNext, interval }: Props) {
   const style = {};
 
   if (!visible) {
@@ -26,6 +30,10 @@ function ResultOverlay({ visible, isCorrect, onNext }: Props) {
           .join(" ")}
       >
         {isCorrect ? "Correct!" : "Wrong!"}
+      </div>
+      <div className="ResultOverlay__solution">
+        {noteToString(interval.from)} → {noteToString(interval.to)} ={" "}
+        {interval.distance.name}
       </div>
       <button className="ResultOverlay__button" onClick={onNext}>
         Next <span className="ResultOverlay__buttonArrow">➤</span>

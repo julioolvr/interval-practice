@@ -110,6 +110,7 @@ class Exercise extends React.Component {
           visible={!!guess}
           isCorrect={isCorrect}
           onNext={() => this.nextInterval()}
+          interval={interval}
         />
       </div>
     );

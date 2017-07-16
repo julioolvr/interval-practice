@@ -21,6 +21,12 @@
   background-color: rgba(62, 255, 62, 0.57);
 }
 
+.ResultOverlay__solution {
+  padding: .5em;
+  font-size: .8em;
+  color: #bababa;
+}
+
 .ResultOverlay__button {
   background: none;
   border: none;
