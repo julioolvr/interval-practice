@@ -72,7 +72,8 @@ class Exercise extends React.Component {
     let isCorrect = false;
 
     if (guess && (toGuess === GUESSES.From || toGuess === GUESSES.To)) {
-      const noteToCheck = GUESSES.From ? interval.from : interval.to;
+      const noteToCheck =
+        toGuess === GUESSES.From ? interval.from : interval.to;
       isCorrect = isSameNote(noteToCheck, ((guess: any): NoteType));
     } else if (guess && toGuess === GUESSES.Distance) {
       isCorrect = interval.distance.name === guess;
