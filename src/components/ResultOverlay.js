@@ -20,7 +20,7 @@ function ResultOverlay({ visible, isCorrect, onNext, interval }: Props) {
   }
 
   return (
-    <div className="ResultOverlay" style={style}>
+    <div className="ResultOverlay" style={style} onClick={onNext}>
       <div
         className={[
           "ResultOverlay__result",
@@ -35,9 +35,7 @@ function ResultOverlay({ visible, isCorrect, onNext, interval }: Props) {
         {noteToString(interval.from)} → {noteToString(interval.to)} ={" "}
         {interval.distance.name}
       </div>
-      <button className="ResultOverlay__button" onClick={onNext}>
-        Next <span className="ResultOverlay__buttonArrow">➤</span>
-      </button>
+      <div className="ResultOverlay__legend">(click anywhere to continue)</div>
     </div>
   );
 }

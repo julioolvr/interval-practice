@@ -9,6 +9,7 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   font-size: 3em;
+  cursor: pointer;
 }
 
 .ResultOverlay__result {
@@ -28,17 +29,9 @@
   color: #bababa;
 }
 
-.ResultOverlay__button {
-  background: none;
-  border: none;
-  font-size: .7em;
-  cursor: pointer;
-  color: white;
-  margin-top: 1em;
-}
-
-.ResultOverlay__buttonArrow {
-  font-size: .8em;
+.ResultOverlay__legend {
+  font-size: .4em;
+  color: gray;
 }
 
 @media (max-width: 700px) and (orientation: portrait) {
