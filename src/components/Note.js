@@ -5,13 +5,14 @@ import { noteToString } from "../lib/notes";
 import type { Note as NoteType } from "../lib/notes";
 
 type Props = {
-  note: NoteType
+  note: NoteType,
+  relative: boolean
 };
 
-function Note({ note }: Props) {
+function Note({ note, relative }: Props) {
   return (
     <span>
-      {noteToString(note)}
+      {relative ? note.letter : noteToString(note)}
     </span>
   );
 }

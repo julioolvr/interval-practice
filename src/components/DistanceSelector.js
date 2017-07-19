@@ -3,16 +3,17 @@ import React from "react";
 
 import Selector from "./Selector";
 
-import type { RealDistance } from "../lib/exerciseGenerator";
-import { DISTANCES } from "../lib/exerciseGenerator";
+import type { RealDistance, RelativeInterval } from "../lib/exerciseGenerator";
+import { DISTANCES, RELATIVE_INTERVALS } from "../lib/exerciseGenerator";
 
 type Props = {
-  value?: RealDistance,
-  onSelect: RealDistance => void
+  value?: RealDistance | RelativeInterval,
+  onSelect: (RealDistance | RelativeInterval) => void,
+  relative?: boolean
 };
 
-function DistanceSelector({ value, onSelect }: Props) {
-  const options = DISTANCES.map(distance => ({
+function DistanceSelector({ value, onSelect, relative = false }: Props) {
+  const options = (relative ? RELATIVE_INTERVALS : DISTANCES).map(distance => ({
     value: distance,
     name: distance
   }));

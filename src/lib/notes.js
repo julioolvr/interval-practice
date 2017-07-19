@@ -150,6 +150,10 @@ export function noteToString(note: Note): string {
   return `${note.letter}${note.modifier === FLAT ? "b" : "#"}`;
 }
 
-export function isSameNote(a: Note, b: Note): boolean {
-  return a.letter === b.letter && a.modifier === b.modifier;
+export function isSameNote(
+  a: Note,
+  b: Note,
+  relative: boolean = false
+): boolean {
+  return a.letter === b.letter && (relative || a.modifier === b.modifier);
 }

@@ -4,7 +4,10 @@ import React from "react";
 import "./Exercise.css";
 
 import type { Note as NoteType } from "../lib/notes";
-import type { RealDistance as RealDistanceType } from "../lib/exerciseGenerator";
+import type {
+  RealDistance as RealDistanceType,
+  RelativeInterval as RelativeIntervalType
+} from "../lib/exerciseGenerator";
 
 import { isSameNote } from "../lib/notes";
 import Note from "./Note";
@@ -14,7 +17,7 @@ import ResultOverlay from "./ResultOverlay";
 import getRandomInterval from "../lib/exerciseGenerator";
 import randomFromArray from "../lib/randomFromArray";
 
-type ValueGuessed = NoteType | RealDistanceType;
+type ValueGuessed = NoteType | RealDistanceType | RelativeIntervalType;
 
 type Guess = "From" | "To" | "Distance";
 const GUESSES: { [Guess]: Guess } = {
@@ -27,7 +30,8 @@ class Exercise extends React.Component {
   state = {
     interval: getRandomInterval(),
     toGuess: randomFromArray([GUESSES.From, GUESSES.To, GUESSES.Distance]),
-    guess: undefined
+    guess: undefined,
+    relative: false
   };
 
   nextInterval() {
@@ -42,45 +46,62 @@ class Exercise extends React.Component {
     this.setState({ guess });
   }
 
+  toggleRelative() {
+    this.setState(prevState => ({ relative: !prevState.relative }));
+  }
+
   render() {
-    const { interval, toGuess, guess } = this.state;
+    const { interval, toGuess, guess, relative } = this.state;
 
     const fromNote =
       toGuess === GUESSES.From
         ? <NoteSelector
             onSelect={note => this.setGuess(note)}
             value={((guess: any): NoteType)}
+            relative={relative}
           />
-        : <Note note={interval.from} />;
+        : <Note note={interval.from} relative={relative} />;
 
     const toNote =
       toGuess === GUESSES.To
         ? <NoteSelector
             onSelect={note => this.setGuess(note)}
             value={((guess: any): NoteType)}
+            relative={relative}
           />
-        : <Note note={interval.to} />;
+        : <Note note={interval.to} relative={relative} />;
 
     const distance =
       toGuess === GUESSES.Distance
         ? <DistanceSelector
             onSelect={distance => this.setGuess(distance)}
             value={((guess: any): RealDistanceType)}
+            relative={relative}
           />
-        : interval.distance.name;
+        : relative ? interval.distance.relative : interval.distance.name;
 
     let isCorrect = false;
 
     if (guess && (toGuess === GUESSES.From || toGuess === GUESSES.To)) {
       const noteToCheck =
         toGuess === GUESSES.From ? interval.from : interval.to;
-      isCorrect = isSameNote(noteToCheck, ((guess: any): NoteType));
+      isCorrect = isSameNote(noteToCheck, ((guess: any): NoteType), relative);
     } else if (guess && toGuess === GUESSES.Distance) {
-      isCorrect = interval.distance.name === guess;
+      isCorrect =
+        (relative ? interval.distance.relative : interval.distance.name) ===
+        guess;
     }
 
     return (
       <div className="Exercise">
+        <label>
+          <input
+            type="checkbox"
+            value={relative}
+            onChange={() => this.toggleRelative()}
+          />
+          Relative
+        </label>
         <div className="Exercise__parts">
           <div className="Exercise__part">
             <div>
@@ -112,6 +133,7 @@ class Exercise extends React.Component {
           isCorrect={isCorrect}
           onNext={() => this.nextInterval()}
           interval={interval}
+          relative={relative}
         />
       </div>
     );

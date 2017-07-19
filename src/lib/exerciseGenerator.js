@@ -78,12 +78,14 @@ export const DISTANCES = [
   "M7"
 ];
 
+export type RelativeInterval = "2" | "3" | "4" | "5" | "6" | "7";
+export const RELATIVE_INTERVALS = ["2", "3", "4", "5", "6", "7"];
+
 type Distance = {
   name: RealDistance,
+  relative: RelativeInterval,
   semitones: number
 };
-
-type RelativeInterval = number;
 
 export function distanceInArray<T>(arr: Array<T>, a: T, b: T): number {
   const indexA = arr.indexOf(a);
@@ -113,45 +115,57 @@ function getRandomNoteGroup(options: { except?: Note } = {}): NoteGroup {
 export function distance(from: Note, to: Note): Distance {
   const semitones = semitonesBetweenNotes(from, to);
   let realDistance: ?RealDistance;
+  let relative: ?RelativeInterval;
 
   switch (semitones) {
     case 1:
       realDistance = "m2";
+      relative = "2";
       break;
     case 2:
       realDistance = "M2";
+      relative = "2";
       break;
     case 3:
       realDistance = "m3";
+      relative = "3";
       break;
     case 4:
       realDistance = "M3";
+      relative = "3";
       break;
     case 5:
       realDistance = "P4";
+      relative = "4";
       break;
     case 7:
       realDistance = "P5";
+      relative = "5";
       break;
     case 8:
       realDistance = "m6";
+      relative = "6";
       break;
     case 9:
       realDistance = "M6";
+      relative = "6";
       break;
     case 10:
       realDistance = "m7";
+      relative = "7";
       break;
     case 11:
       realDistance = "M7";
+      relative = "7";
       break;
     case 6:
       const relativeInterval = distanceBetweenLetters(from.letter, to.letter);
       realDistance = relativeInterval === 3 ? "A4" : "d5";
+      relative = relativeInterval === 3 ? "4" : "5";
       break;
   }
 
-  if (!realDistance) {
+  if (!realDistance || !relative) {
     throw new Error(
       `Distance between notes sould be between 1 and 11, was ${semitones}`
     );
@@ -159,6 +173,7 @@ export function distance(from: Note, to: Note): Distance {
 
   return {
     name: realDistance,
+    relative,
     semitones
   };
 }
