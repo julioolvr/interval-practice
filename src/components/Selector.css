@@ -1,0 +1,106 @@
+.Selector {
+  font-size: 16px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.Selector__button {
+  font-size: 1em;
+  width: 5em;
+  padding: 1em;
+  margin: 1px;
+  border: none;
+  cursor: pointer;
+}
+
+.Selector__button--selected {
+  color: white;
+}
+
+.Selector__button:nth-of-type(0n + 1) {
+  background-color: #ff1d00;
+}
+
+.Selector__button:nth-of-type(0n + 2) {
+  background-color: #fe0724;
+}
+
+.Selector__button:nth-of-type(0n + 3) {
+  background-color: #fe0f62;
+}
+
+.Selector__button:nth-of-type(0n + 4) {
+  background-color: #fe179e;
+}
+
+.Selector__button:nth-of-type(0n + 5) {
+  background-color: #fe1ed5;
+}
+
+.Selector__button:nth-of-type(0n + 6) {
+  background-color: #f326fe;
+}
+
+.Selector__button:nth-of-type(0n + 7) {
+  background-color: #c32efe;
+}
+
+.Selector__button:nth-of-type(0n + 8) {
+  background-color: #9635fe;
+}
+
+.Selector__button:nth-of-type(0n + 9) {
+  background-color: #6d3dfe;
+}
+
+.Selector__button:nth-of-type(0n + 10) {
+  background-color: #4845fe;
+}
+
+.Selector__button:nth-of-type(0n + 11) {
+  background-color: #4c73fe;
+}
+
+.Selector__button:nth-of-type(0n + 12) {
+  background-color: #54a0fd;
+}
+
+.Selector__button:nth-of-type(0n + 13) {
+  background-color: #5ccafd;
+}
+
+.Selector__button:nth-of-type(0n + 14) {
+  background-color: #63f0fd;
+}
+
+.Selector__button:nth-of-type(0n + 15) {
+  background-color: #6bfde7;
+}
+
+.Selector__button:nth-of-type(0n + 16) {
+  background-color: #72fdc8;
+}
+
+.Selector__button:nth-of-type(0n + 17) {
+  background-color: #7afdac;
+}
+
+.Selector__button:nth-of-type(0n + 18) {
+  background-color: #82fd94;
+}
+
+.Selector__button:nth-of-type(0n + 19) {
+  background-color: #93fd89;
+}
+
+.Selector__button:nth-of-type(0n + 20) {
+  background-color: #b3fd91;
+}
+
+.Selector__button:nth-of-type(0n + 21) {
+  background-color: #d0fd98;
+}
+
+.Selector__button[disabled]:not(.Selector__button--selected) {
+  background-color: gray;
+}

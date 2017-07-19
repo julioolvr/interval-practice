@@ -6,7 +6,7 @@ import "./Exercise.css";
 import type { Note as NoteType } from "../lib/notes";
 import type { RealDistance as RealDistanceType } from "../lib/exerciseGenerator";
 
-import { isSameNote, noteToString } from "../lib/notes";
+import { isSameNote } from "../lib/notes";
 import Note from "./Note";
 import NoteSelector from "./NoteSelector";
 import DistanceSelector from "./DistanceSelector";
